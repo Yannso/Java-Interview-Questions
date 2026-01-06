@@ -1,6 +1,7 @@
 package com.yanso.dp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ColorTheGrid {
@@ -50,8 +51,8 @@ public class ColorTheGrid {
         // 3. 状态转移：从第二列（i=1）开始
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < K; j++) { // j：当前状态
-                for (int pre = 0; pre < nextAllowed.get(j).size(); pre++) {
-                    dp[i][j] = (dp[i][j] + dp[i - 1][nextAllowed.get(j).get(pre)]) % MOD;
+                for(int pre : nextAllowed.get(j)) {
+                    dp[i][j] = (dp[i][j] + dp[i - 1][pre]) % MOD;
                 }
             }
         }
