@@ -20,12 +20,12 @@ public class MaxProduct {
         return dfsGetSum(root.left) + dfsGetSum(root.right) + root.val;
     }
 
-    private int dfs(TreeNode root, long totalSum) {
+    private long dfs(TreeNode root, long totalSum) {
         if (root == null) {
             return 0;
         }
-        int left = dfs(root.left, totalSum);
-        int right = dfs(root.right, totalSum);
+        long left = dfs(root.left, totalSum);
+        long right = dfs(root.right, totalSum);
         long curSum = left + right + root.val;
         result = Math.max(result, curSum * (totalSum - curSum));
         return left + right + root.val;
