@@ -1,28 +1,32 @@
 package com.yanso.traceback;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CountArrangementTraceBack {
-    private int count;
-    private boolean[] visited;
+
+    private Map<Integer, Integer> memo = new HashMap<>();
 
     public int countArrangement(int n) {
-        count = 0;
-        visited = new boolean[n + 1];
-        dfs(1, n);
-        return count;
+        return dfs(1,0,n);
     }
 
-    private void dfs(int index, int n) {
+    private int dfs(int index, int mask, int n) {
         if (index > n) {
-            count++;
-            return;
+            return 1;
         }
+        if (memo.containsKey(mask)) {
+            return memo.get(mask);
+        }
+        int res = 0;
         for (int i = 1; i <= n; i++) {
-            if (!visited[i] && (i % index == 0 || index % i == 0)) {
-                visited[i] = true;
-                dfs(index + 1, n);
-                visited[i] = false;
+            if (((mask >> (i - 1)) & 1) == 0 && (i % index == 0 || index % i == 0)) {
+                // 使用mask来代替访问数组
+                res += dfs(index + 1, mask | (1 << (i - 1)), n);
             }
         }
+        memo.put(mask, res);
+        return res;
     }
 
     public static void main(String[] args) {
