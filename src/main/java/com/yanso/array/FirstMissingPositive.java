@@ -1,10 +1,8 @@
 package com.yanso.array;
 
-import java.util.Arrays;
-
 public class FirstMissingPositive {
 
-    private void findPos(int nums[]) {
+    private void findPos(int[] nums) {
         int n = nums.length;
         // 1 to n+1 没有出现的最小正数肯定在这个范围内
         for (int i = 0; i < n; i++) {
