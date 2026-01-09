@@ -3,7 +3,7 @@ package com.yanso.tree;
 import java.util.*;
 
 public class TreeUtils {
-    public static TreeNode fromArray(Integer[] array) {
+    public static TreeNode buildFromArray(Integer[] array) {
         if (array == null || array.length == 0) return null;
 
         TreeNode root = new TreeNode(array[0]);
