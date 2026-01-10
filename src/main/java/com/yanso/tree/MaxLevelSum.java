@@ -35,7 +35,7 @@ public class MaxLevelSum {
 
     public static void main(String[] args) {
         Integer[] rootArray = {-100,-200,-300,-20,-5,-10,null};
-        TreeNode root = TreeUtils.fromArray(rootArray);
+        TreeNode root = TreeUtils.buildFromArray(rootArray);
         TreeUtils.printTree(root);
         int result = new MaxLevelSum().maxLevelSum(root);
         System.out.println("result = " + result);
