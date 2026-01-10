@@ -1,8 +1,5 @@
 package com.yanso.tree;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class MaxProduct {
     public static int MOD = 1000000007;
     public long result = Integer.MIN_VALUE;
@@ -33,7 +30,7 @@ public class MaxProduct {
 
     public static void main(String[] args) {
         Integer[] rootArray = {1,null,2,3,4,null,null,5,6};
-        TreeNode root = TreeUtils.fromArray(rootArray);
+        TreeNode root = TreeUtils.buildFromArray(rootArray);
         TreeUtils.printTree(root);
         int result = new MaxProduct().maxProduct(root);
         System.out.println("result = " + result);
